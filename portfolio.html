@@ -1,0 +1,54 @@
+     <!-- this section populates the portfolio section of the landing page -->
+     <!-- Portfolio -->
+ <section id="portfolio">
+  <div class="container">
+
+      <!-- this section is for future use. please ignore -->
+      <!-- <div class="container">
+        <div id="blog-end" class="row">
+          <div class="col-lg-2 text-center"></div>
+          <div class="col-xs-3 col-sm-3 col-lg-2 text-center bottom-margin"><h6 id="all-projects-link" class="portfolio-nav-link portfolio-link-active">All projects</h6></div>
+          <div class="col-xs-3 col-sm-3 col-lg-2 text-center bottom-margin"><h6 id="screen-link" class="portfolio-nav-link">Web & Mobile</h6></div>
+          <div class="col-xs-3 col-sm-3 col-lg-2 text-center bottom-margin"><h6 id="emerging-link" class="portfolio-nav-link">Emerging Tech</h6></div>
+          <div class="col-xs-3 col-sm-3 col-lg-2 text-center bottom-margin"><h6 id="research-link" class="portfolio-nav-link">Research</h6></div>
+          <div class="col-lg-2 text-center"></div>
+        </div>
+      </div> -->
+
+    <!-- this section creates tiles for each project in the projects folder. Each of those files uses an html template that is housed in the layouts folder -->
+    <div class="row">
+      {% assign projects = site.projects | sort:"sort-order" %}
+      {% for project in projects %}
+      <div id= "{{ project.prj_type }}" class="col-xs-12 col-md-6 col-lg-4 portfolio-item">
+        <a id="no-decoration-link" class="portfolio-link" href="{{ project.url }}">
+          <div id="white-background" class="portfolio-hover">
+            <div class="portfolio-hover-content">
+                <p id="portfolio-hover-explanation">{{ project.prj_blurb }}</p>
+            </div>
+            <div id="skill-tiles">{{ project.prj_skill }}
+          </div>
+          </div>
+          <img  class="img-fluid" src="/img/portfolio/{{ project.prj_thumbnail }}" alt="">
+          <div class="portfolio-caption">
+            <h4>{{ project.prj_name }}</h4>
+            <p class="subtitle">{{ project.prj_subtitle }}</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+<!--   <div class="container">
+    <div id="below-video" class="row top-section">
+      <div class="col-12 project-description">
+          <a id="resume-link" href="docs/Resume_Po-Bhattacharyya.pdf" target="_blank"><button type="button" id="resume-button" class="btn btn-secondary btn-lg">View Resume</button></a> 
+      </div>
+    </div>
+  </div> -->
+
+  <div id="below-video" class="row top-section">
+      <div class="col-12 project-description">
+          <a id="resume-link" href="docs/Resume_Po-Bhattacharyya.pdf" target="_blank"><button type="button" id="resume-button" class="btn btn-secondary btn-lg">View Resume</button></a> 
+      </div>
+  </div>
+</section>
